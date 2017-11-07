@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">二维码小工具</string>
+    <string name="item_deleted">删除</string>
+    <string name="item_undo">撤消</string>
+</resources>

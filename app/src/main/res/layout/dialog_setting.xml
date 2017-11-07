@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_round_white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="16dp">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:text="设置"
+            android:textColor="@color/blue"
+            android:textSize="18dp"
+            android:textStyle="bold"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="16dp"
+            android:background="#D9D9D9"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
+            android:scrollbars="vertical"
+            android:scrollbarStyle="outsideInset"
+            android:overScrollMode="never">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="二维码大小 (以像素为单位 px)" />
+
+                <EditText
+                    android:id="@+id/size"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="800"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="二维码外边距 (以像素为单位 px)" />
+
+                <EditText
+                    android:id="@+id/margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="20"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="二维码数据点大小 (0 &lt; scale &lt; 1.0)" />
+
+                <EditText
+                    android:id="@+id/dotScale"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0.3"
+                    android:inputType="numberDecimal"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+                <CheckBox
+                    android:id="@+id/rounded"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="是否采用圆形的数据点" />
+
+                <CheckBox
+                    android:id="@+id/autoColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="是否自动选择颜色和背景图像" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="深色点 (如 #dddddd)" />
+
+                <EditText
+                    android:id="@+id/colorDark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:hint="深色"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="浅色点 (如 #dddddd)" />
+
+                <EditText
+                    android:id="@+id/colorLight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:hint="浅色"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="头像外边距 (以像素为单位 px)" />
+
+                <EditText
+                    android:id="@+id/logoMargin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="10"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="头像圆角弧度 (以像素为单位 px)" />
+
+                <EditText
+                    android:id="@+id/logoRadius"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="8"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="头像大小 (相对于二维码)" />
+
+                <EditText
+                    android:id="@+id/logoScale"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0.2"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+                <CheckBox
+                    android:id="@+id/whiteMargin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="背景图像是否留白边" />
+
+                <CheckBox
+                    android:id="@+id/binarize"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="是否灰度化二维码" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="灰度化程度 (0 &lt; x &lt; 255)" />
+
+                <EditText
+                    android:id="@+id/binarizeThreshold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:text="128"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+            </LinearLayout>
+        </ScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D9D9D9"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_ok"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="@color/_8c"
+                android:background="@drawable/selector_dialog"
+                android:textSize="16dp"/>
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="#D9D9D9"/>
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="@color/_8c"
+                android:background="@drawable/selector_dialog"
+                android:textSize="16dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

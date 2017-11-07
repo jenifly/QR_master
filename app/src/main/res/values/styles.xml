@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/mi_green</item>
+        <item name="colorPrimaryDark">@color/mi_green</item>
+        <item name="colorAccent">@color/mi_green</item>
+    </style>
+
+    <style name="SancerTheme" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/mi_green</item>
+        <item name="colorPrimaryDark">@color/mi_green</item>
+        <item name="colorAccent">@color/mi_green</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="TickerTextAppearance">
+        <item name="android:textColor">@color/f0</item>
+        <item name="android:textSize">50sp</item>
+    </style>
+</resources>

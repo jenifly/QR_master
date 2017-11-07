@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="f0">#f0f0f0</color>
+
+    <color name="royalblue">#4169E1</color><!--皇家蓝 -->
+
+    <color name="blue">#3F51B5</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="background_press">#66CCCCCC</color>
+
+    <color name="_8c">#8c8c8c</color>
+
+    <color name="mi_green">#52BA97</color>
+    <color name="red500">#db4437</color>
+    <color name="brown2">#b19282</color>
+    <color name="textlight30">#4d6b8d9c</color>
+    <color name="textlight">#546e7a</color>
+
+</resources>

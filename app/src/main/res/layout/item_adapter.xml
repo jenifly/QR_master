@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:id="@+id/root_layout"
+    android:clipToPadding="false">
+
+    <RelativeLayout
+        android:elevation="3dp"
+        android:id="@+id/container"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/textlight30" />
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_gravity="start|center_vertical"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/item_iv"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_gravity="start|center_vertical"
+                android:fontFamily="sans-serif"
+                android:id="@+id/tvItemName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="66dp"
+                android:singleLine="true"
+                android:textSize="15sp"
+                android:textColor="@color/textlight" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/relativeReorder"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ivReorder"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_centerInParent="true"
+                android:tint="@color/textlight"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_dehaze_white_24dp"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>
