@@ -1,8 +1,12 @@
 package com.jenifly.qr_master.activity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +14,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jenifly.qr_master.R;
 import com.jenifly.qr_master.SQLHelper.SQLBaseHelper;
@@ -41,11 +46,13 @@ public class MainActivity extends AppCompatActivity implements OnStartDragListen
     @BindView(R.id.qrcodeList) RecyclerView qrcodeList;
     @BindView(R.id.tvCount) TextView tvCount;
 
+    private static final int RESUTECODE = 10 ;
+
     private JyDialogSure jyDialogSure;
     private JyDialogCheck jyDialogCheck;
     private ItemTouchHelper mItemTouchHelper;
     private ItemAdapter itemAdapter;
-
+    private boolean isHavePermission = false;
     private static final char[] NUMBER_LIST = JyTickerUtils.getDefaultNumberList();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +60,42 @@ public class MainActivity extends AppCompatActivity implements OnStartDragListen
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         JyTool.init(this);
-        init();
+        requestPermission();
+    }
+
+    private void requestPermission(){
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            /*if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) &&
+                    ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
+            } else {
+            }*/
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.CAMERA}, RESUTECODE);
+        }else {
+            init();
+            isHavePermission = true;
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case RESUTECODE: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    init();
+                    isHavePermission = true;
+                }
+                if(grantResults[0] != PackageManager.PERMISSION_GRANTED && grantResults[1] != PackageManager.PERMISSION_GRANTED){
+                    JyToast.error("您已拒绝为本工具赋予限权，位保证本工具正常运行，请为添加限权！",3000);
+                } else if(grantResults[0] != PackageManager.PERMISSION_GRANTED){
+                    JyToast.error("您已拒绝为本工具赋予存储限权，位保证本工具正常运行，请为添加限权！",3000);
+                } else if(grantResults[1] != PackageManager.PERMISSION_GRANTED){
+                    JyToast.error("您已拒绝为本工具赋予相机限权，位保证本工具正常运行，请为添加限权！",3000);
+                }
+                return;
+            }
+        }
     }
 
     private void init(){
@@ -127,9 +169,11 @@ public class MainActivity extends AppCompatActivity implements OnStartDragListen
     @Override
     protected void onResume() {
         super.onResume();
-        updateScanCodeCount();
-        updateMadeCodeCount();
-        itemAdapter.setItemList(JyConstants.sqlBaseHelper.getDataList());
+        if(isHavePermission){
+            updateScanCodeCount();
+            updateMadeCodeCount();
+            itemAdapter.setItemList(JyConstants.sqlBaseHelper.getDataList());
+        }
     }
 
     private void updateScanCodeCount() {

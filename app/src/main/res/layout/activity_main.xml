@@ -183,17 +183,18 @@
             android:layout_width="18dp"
             android:layout_height="18dp"
             android:background="@drawable/circle">
+
             <TextView
                 android:id="@+id/tvCount"
-                android:fontFamily="sans-serif"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:textStyle="normal"
-                android:textSize="11sp"
+                android:fontFamily="sans-serif"
                 android:gravity="center"
+                android:text="0"
                 android:textColor="@color/white"
-                android:text="20"/>
+                android:textSize="11sp"
+                android:textStyle="normal" />
         </RelativeLayout>
     </LinearLayout>
 
